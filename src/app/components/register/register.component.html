@@ -1,0 +1,21 @@
+<div class="form-container">
+  <h1 class="title">Register</h1>
+  <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="input-group">
+      <label for="email" class="email">Email</label>
+      <input type="text" name="email" placeholder="Email" formControlName="email" required />
+    </div>
+    <div class="input-group">
+      <label for="password" class="password">Password</label>
+      <input type="password" name="password" placeholder="Password" formControlName="password" required />
+    </div>
+    <!-- <div class="input-group">
+      <label for="confirmPassword" class="password">Confirm Password</label>
+      <input type="password" name="confirmPassword" placeholder="Confirm Password" formControlName="confirmPassword" required />
+    </div> -->
+    <button class="sign-in" type="submit">Sign Up</button>
+    <p class="sign-up">Already have an account?
+      <a [routerLink]="['/login']">Sign in</a>
+    </p>
+  </form>
+</div>

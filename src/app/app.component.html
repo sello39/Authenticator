@@ -1,0 +1,9 @@
+<!-- <div *ngIf="!authService.currentUserSig()">
+  <button [routerLink]="['/login']">Login</button>
+  <button [routerLink]="['/register']">Register</button>
+</div> -->
+<div *ngIf="authService.currentUserSig()">
+  {{ authService.currentUserSig()?.email }}
+  <button (click)="logout()">Logout</button>
+</div>
+<router-outlet></router-outlet>
