@@ -1,19 +1,23 @@
-<div class="form-container">
+<div class="form-container" *ngIf="!authService.currentUserSig()">
   <h1 class="title">Register</h1>
   <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="input-group">
       <label for="email" class="email">Email</label>
       <input type="text" name="email" placeholder="Email" formControlName="email" required />
+      <div class="error-message" *ngIf="form.get('email')?.touched && getEmailErrorMessage()">
+        {{ getEmailErrorMessage() }}
+      </div>
     </div>
     <div class="input-group">
       <label for="password" class="password">Password</label>
-      <input type="password" name="password" placeholder="Password" formControlName="password" required />
+      <input type="password" name="password" placeholder="Password" formControlName="password" required (focus)="form.get('password')?.markAsTouched()" />
+      <div class="error-messages" *ngIf="form.get('password')?.touched && getPasswordErrorMessages().length > 0">
+        <div class="error-message" *ngFor="let error of getPasswordErrorMessages()">
+          {{ error }}
+        </div>
+      </div>
     </div>
-    <!-- <div class="input-group">
-      <label for="confirmPassword" class="password">Confirm Password</label>
-      <input type="password" name="confirmPassword" placeholder="Confirm Password" formControlName="confirmPassword" required />
-    </div> -->
-    <button class="sign-in" type="submit">Sign Up</button>
+    <button class="sign-in" type="submit" [disabled]="!form.valid" [ngClass]="{'button-disabled': !form.valid}">Sign Up</button>
     <p class="sign-up">Already have an account?
       <a [routerLink]="['/login']">Sign in</a>
     </p>

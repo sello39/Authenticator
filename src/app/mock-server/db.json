@@ -1,22 +1,9 @@
 {
   "users": [
     {
-      "email": "user1",
-      "password": "password1"
-    },
-    {
-      "email": "user2",
-      "password": "password2"
-    },
-    {
-      "id": "836e",
-      "email": "george.bluth@reqres.in",
-      "password": "cityslicka"
-    },
-    {
-      "id": "a7a6",
-      "email": "george.bluth@reqres.in",
-      "password": "cityslicka"
+      "id": "a499",
+      "email": "user1@gmail.com",
+      "password": "User98745#"
     }
   ]
 }

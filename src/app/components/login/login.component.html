@@ -1,9 +1,12 @@
-<div class="form-container">
+<div class="form-container" *ngIf="!authService.currentUserSig()">
   <h1 class="title">LOGIN</h1>
   <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="input-group">
       <label for="email" class="email">Email</label>
       <input type="text" name="email" formControlName="email" required>
+      <div class="error-message" *ngIf="form.get('email')?.touched && getEmailErrorMessage()">
+        {{ getEmailErrorMessage() }}
+      </div>
     </div>
     <div class="input-group">
       <label for="password" class="password">Password</label>
@@ -12,7 +15,7 @@
     <div class="forgot">
       <a href="#">Forgot password ?</a>
     </div>
-    <button class="sign-in" type="submit">Sign in</button>
+    <button class="sign-in" type="submit" [disabled]="!form.valid" [ngClass]="{'button-disabled': !form.valid}">Sign in</button>
     <p class="sign-up">Don't you have an account?
       <a [routerLink]="['/register']">Sign up</a>
     </p>

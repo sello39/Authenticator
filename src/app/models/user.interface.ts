@@ -1,4 +1,6 @@
 export interface UserInterface {
-  email: string | undefined;
-  token: string;
+  id?: string;
+  email?: string;
+  password?: string;
+  token?: string;
 }

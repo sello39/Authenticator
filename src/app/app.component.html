@@ -1,9 +1,6 @@
-<!-- <div *ngIf="!authService.currentUserSig()">
-  <button [routerLink]="['/login']">Login</button>
-  <button [routerLink]="['/register']">Register</button>
-</div> -->
-<div *ngIf="authService.currentUserSig()">
-  {{ authService.currentUserSig()?.email }}
-  <button (click)="logout()">Logout</button>
+<div class="nav-container">
+  <div *ngIf="authService.currentUserSig()">
+    <button (click)="logout()">Logout</button>
+  </div>
 </div>
 <router-outlet></router-outlet>

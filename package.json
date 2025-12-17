@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --no-hmr",
-    "start2": "node server.js",
+    "mock:server": "json-server --watch src/app/mock-server/db.json --port 3000",
+    "start:server": "npm run mock:server",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
